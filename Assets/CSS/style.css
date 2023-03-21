@@ -1,0 +1,13 @@
+.background {
+    background-image: url(../IMGS/P1-BG-ANIMALS.png);
+    background-repeat: no-repeat;
+    background-size: cover;
+    opacity: 0.7;
+    flex-grow: 1;
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}

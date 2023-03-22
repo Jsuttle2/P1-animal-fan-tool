@@ -1,64 +1,67 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Animal Fan Tool</title>
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css">
-    <link rel="stylesheet" href="./Assets/CSS/style.css">
-  </head>
-  <body>
-    <header>
-        <section class="hero is-primary is-small">
-            <!-- Hero head: will stick at the top -->
-            <div class="hero-head">
-              <nav class="navbar">
-                <div class="container">
-                  <div class="navbar-brand">
-                    <a class="navbar-animal">
-                      <img src="./Assets/IMGS/axolotl.jpg" width="100" height="100" alt="Logo">
-                    </a>
-                    <span class="navbar-burger" data-target="navbarMenuHeroA">
-                      <span></span>
-                      <span></span>
-                      <span></span>
-                    </span>
-                  </div>
-                  <div id="navbarMenuHeroA" class="navbar-menu">
-                  </div>
-                </div>
-              </nav>
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Animal Fan Tool</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css">
+  <link rel="stylesheet" href="./Assets/CSS/style.css">
+</head>
+
+<body>
+  <header>
+    <section class="hero is-primary is-small">
+      <!-- Hero head: will stick at the top -->
+      <div class="hero-head">
+        <nav class="navbar">
+          <div class="container">
+            <div class="navbar-brand">
+              <a class="navbar-animal">
+                <img src="./Assets/IMGS/axolotl.jpg" width="100" height="100" alt="Logo">
+              </a>
+              <span class="navbar-burger" data-target="navbarMenuHeroA">
+                <span></span>
+                <span></span>
+                <span></span>
+              </span>
             </div>
-          
-            <!-- Hero content: will be in the middle -->
-            <div class="hero-body">
-              <div class="container has-text-centered">
-                <p class="title">
-                  Animal Fan Tool
-                </p>
-                <p class="subtitle">
-                  Find videos, photos and facts about all your favorite animal pals!
-                </p>
-                <label for="animal-names">Choose a animal name:</label>
-                <select name="animal-names" id="animal-names">
-                <option value="A1">Animal 1</option>
-                <option value="A2">Animal 2</option>
-                <option value="A3">Animal 3</option>
-                <option value="A4">Animal 4</option>
-                <option value="A5">Animal 5</option>
-                <option value="A6">Animal 6</option>
-              </select>
-
-
-              </div>
+            <div id="navbarMenuHeroA" class="navbar-menu">
             </div>
-          </section>
-    </header>
+          </div>
+        </nav>
+      </div>
 
-  <main  class="background">
-      <div class="columns">
-        <div class="column is-one-fifth m-2">
-          <input id="searchButton" class="button is-primary m-3">
+      <!-- Hero content: will be in the middle -->
+      <div class="hero-body">
+        <div class="container has-text-centered">
+          <p class="title">
+            Animal Fan Tool
+          </p>
+          <p class="subtitle">
+            Find videos, photos and facts about all your favorite animal pals!
+          </p>
+
+
+
+        </div>
+      </div>
+    </section>
+  </header>
+
+  <main class="background">
+    <div class="columns">
+      <div class="column is-one-fifth m-2">
+        <label for="animal-names">Choose a animal name:</label>
+        <select name="animal-names" id="animal-names">
+          <option value="" disabled selected>Select an animal!</option>
+          <option value="A1">Animal 1</option>
+          <option value="A2">Animal 2</option>
+          <option value="A3">Animal 3</option>
+          <option value="A4">Animal 4</option>
+          <option value="A5">Animal 5</option>
+          <option value="A6">Animal 6</option>
+        </select>
       </div>
 
       <div class="column is-four-fifth m-2">
@@ -70,9 +73,10 @@
         </div> -->
       </div>
 
-      <div id = "player"></div>
- 
-    </main>
- <script src="./Assets/JS/script.js"></script>
-  </body>
+      <div id="player"></div>
+
+  </main>
+  <script src="./Assets/JS/script.js"></script>
+</body>
+
 </html>

@@ -1,5 +1,7 @@
 # Animal Fan Tool
 
+![Website Screenshot](https://jsuttle2.github.io/P1-animal-fan-tool/)
+
 ## Description
 
 This is an HTML and JavaScript code that creates an animal fan tool. It provides a user interface with a selection menu of different animals, and upon selecting an animal name from the dropdown, the tool uses API calls to populate a video or gif for that animal. There are three dropdown menus in total - one for videos, one for gifs, and one for wikipedia articles (coming soon!).
@@ -18,10 +20,10 @@ You will be presented with three dropdown menus - one for videos, one for gifs, 
 
 ## Contributors
 
-[Lohmar L'Amour](https://github.com/Lohmarr)
-[Sarah Miller](https://github.com/smiller422)
-[Jameson Suttles](https://github.com/Jsuttle2)
-[Tiffany Parks](https://github.com/TiffanyParks)
+* [Lohmar L'Amour](https://github.com/Lohmarr)
+* [Sarah Miller](https://github.com/smiller422)
+* [Jameson Suttles](https://github.com/Jsuttle2)
+* [Tiffany Parks](https://github.com/TiffanyParks)
 
 ## License
 

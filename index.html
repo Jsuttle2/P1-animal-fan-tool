@@ -18,8 +18,8 @@
         <nav class="navbar">
           <div class="container">
             <div class="navbar-brand">
-              <a class="navbar-animal">
-                <img src="./Assets/IMGS/axolotl.jpg" width="100" height="100" alt="Logo">
+              <a class="navbar-animal" href="https://www.youtube.com/watch?v=MxA0QVGVEJw" target="_blank">
+                <img src="./Assets/IMGS/axolotl.jpg" width="100" height="100" alt="Logo" id="axolotl-img">
               </a>
               <span class="navbar-burger" data-target="navbarMenuHeroA">
                 <span></span>
@@ -53,12 +53,12 @@
   <main class="background">
 
     <div class="columns">
-      <div class="column is-one-fifth m-2">
-        <div class="columns is-multiline is-mobile is-half">
+      <div class="column is-centered">
+        <div class="columns is-half">
           <label for="animal-names" class="subtitle">Youtube:</label>
             <div class="column is">
               <div class="select is-normal">
-                <select name="animal-names">
+                <select name="animal-names" id="animal-names">
                   <option value="" disabled selected>Select an animal!</option>
                   <option value="Cats">Cats</option>
                   <option value="Dogs">Dogs</option>
@@ -76,7 +76,7 @@
               <span></span>
                 <label for="animal-names" class="subtitle">Giphy:</label>
                 <div class="select is-normal">
-                  <select name="animal-names">
+                  <select name="animal-names" id="gif-names">
                     <option value="" disabled selected>Select an animal!</option>
                     <option value="Cats">Cats</option>
                     <option value="Dogs">Dogs</option>
@@ -91,9 +91,9 @@
 
             <div class="column">
               <span></span>
-                <label for="animal-names" class="subtitle">Wiki:</label>
+                <label for="animal-names" class="subtitle">Wiki (Soon!):</label>
                 <div class="select is-normal">
-                  <select name="animal-names">
+                  <select name="animal-names" id="wiki-names">
                     <option value="" disabled selected>Select an animal!</option>
                     <option value="Cats">Cats</option>
                     <option value="Dogs">Dogs</option>

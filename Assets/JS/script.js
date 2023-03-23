@@ -16,6 +16,8 @@ function getAnimalOption(event) {
   console.log(event.target.value);
   // START
   searchApi(event.target.value);
+
+  localStorage.setItem('animal', JSON.stringify(event.target.value));
 }
 
 function printResults (dataResults) {
@@ -48,6 +50,8 @@ function printResults (dataResults) {
   cardDisc.classList.add('content')
   cardDisc.textContent = dataResults.snippet.description
   resultCard.appendChild(cardDisc)
+
+
 }
 
 function searchApi(value) {
@@ -70,6 +74,14 @@ function searchApi(value) {
     .catch((error) => {
       console.error(error);
     });
+
+    cardParent.innerHTML = null;
+  }
+
+var lastSearch = localStorage.getItem('animal');
+if (lastSearch) {
+animalNamesInput.value = lastSearch;
+  searchApi(lastSearch);
 }
 
 //var searchInput =

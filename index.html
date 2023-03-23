@@ -5,6 +5,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Animal Fan Tool</title>
+  <link rel="stylesheet" href="https://use.typekit.net/epb6fwi.css">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css">
   <link rel="stylesheet" href="./Assets/CSS/style.css">
 </head>
@@ -35,7 +36,7 @@
       <!-- Hero content: will be in the middle -->
       <div class="hero-body">
         <div class="container has-text-centered">
-          <p class="title">
+          <p class="title" id="cool-text">
             Animal Fan Tool
           </p>
           <p class="subtitle">
@@ -50,31 +51,71 @@
   </header>
 
   <main class="background">
+
     <div class="columns">
       <div class="column is-one-fifth m-2">
-        <label for="animal-names">Choose a animal name:</label>
-        <select name="animal-names" id="animal-names">
-          <option value="" disabled selected>Select an animal!</option>
-          <option value="Cats">Cats</option>
-          <option value="Dogs">Dogs</option>
-          <option value="Axolotls">Axolotls</option>
-          <option value="Snakes">Snakes</option>
-          <option value="Flamingos">Flamingos</option>
-          <option value="Chinchillas">Chinchillas</option>
-          <option value="Otters">Otters</option>
-        </select>
-      </div>
+        <div class="columns is-multiline is-mobile is-half">
+          <label for="animal-names" class="subtitle">Youtube:</label>
+            <div class="column is">
+              <div class="select is-normal">
+                <select name="animal-names">
+                  <option value="" disabled selected>Select an animal!</option>
+                  <option value="Cats">Cats</option>
+                  <option value="Dogs">Dogs</option>
+                  <option value="Axolotls">Axolotls</option>
+                  <option value="Snakes">Snakes</option>
+                  <option value="Flamingos">Flamingos</option>
+                  <option value="Chinchillas">Chinchillas</option>
+                  <option value="Otters">Otters</option>
+                </select>
+              </div>
+            </div>
 
-      <div class="column is-four-fifth m-2" id="card-parent">
-        <!-- <div class="field">
-          <div class="control m-2">
-            <input class="input m-1" type="text" placeholder="Text input">
+        
+            <div class="column">
+              <span></span>
+                <label for="animal-names" class="subtitle">Giphy:</label>
+                <div class="select is-normal">
+                  <select name="animal-names">
+                    <option value="" disabled selected>Select an animal!</option>
+                    <option value="Cats">Cats</option>
+                    <option value="Dogs">Dogs</option>
+                    <option value="Axolotls">Axolotls</option>
+                    <option value="Snakes">Snakes</option>
+                    <option value="Flamingos">Flamingos</option>
+                    <option value="Chinchillas">Chinchillas</option>
+                    <option value="Otters">Otters</option>
+                  </select>
+                </div>
+            </div> 
+
+            <div class="column">
+              <span></span>
+                <label for="animal-names" class="subtitle">Wiki:</label>
+                <div class="select is-normal">
+                  <select name="animal-names">
+                    <option value="" disabled selected>Select an animal!</option>
+                    <option value="Cats">Cats</option>
+                    <option value="Dogs">Dogs</option>
+                    <option value="Axolotls">Axolotls</option>
+                    <option value="Snakes">Snakes</option>
+                    <option value="Flamingos">Flamingos</option>
+                    <option value="Chinchillas">Chinchillas</option>
+                    <option value="Otters">Otters</option>
+                  </select>
+                </div>
+            </div>
         </div>
-            <p class="help ml-3">Enter your search here</p>
-        </div> -->
       </div>
+    </div>
+      
+
+      <div class="column is-four-fifth m-2" id="card-parent"></div>
+      <div class="column is-four-fifth m-2" id="gif-parent"></div>
+
 
       <div id="player"></div>
+    </div>
 
   </main>
   <script src="./Assets/JS/script.js"></script>

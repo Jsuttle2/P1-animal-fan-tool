@@ -13,10 +13,29 @@
     right: 0;
 }
 
+.columns{
+    margin-top: 20px;
+    margin-left: 10px;
+}
+
 body {
     display: flex;
     flex-direction: column;
     min-height: 100vh;
+}
+
+#cool-text {
+    font-family: "chantal", sans-serif;
+    font-weight: 600;
+    font-style: normal;
+    font-size: 82px;
+}
+
+.subtitle {
+    font-family: "chantal", sans-serif;
+    font-weight: 300;
+    font-style: normal;
+    font-size: 26px;
 }
 
 .card {

@@ -1,6 +1,8 @@
 var animalNamesInput = document.querySelector('#animal-names');
 var cardParent = document.querySelector('#card-parent')
-
+var gifParent = document.querySelector('#gif-parent')
+var gifNamesInput = document.querySelector('#gif-names')
+var wikiNamesInput = document.querySelector('#wiki-names')
 // function getParams() {
 //   // Get the search params out of the URL (i.e. `?q=london&format=photo`) and convert it to an array (i.e. ['?q=london', 'format=photo'])
 //   var searchParamsArr = document.location.search.split("&");
@@ -15,9 +17,17 @@ var cardParent = document.querySelector('#card-parent')
 function getAnimalOption(event) {
   console.log(event.target.value);
   // START
-  searchApi(event.target.value);
+  searchYtApi(event.target.value);
 
   localStorage.setItem('animal', JSON.stringify(event.target.value));
+}
+
+function getGifOption(event) {
+  console.log(event.target.value);
+  // START
+  searchGifApi(event.target.value);
+
+  localStorage.setItem('gif', JSON.stringify(event.target.value));
 }
 
 function printResults (dataResults) {
@@ -25,7 +35,7 @@ function printResults (dataResults) {
   cardParent.classList.add('columns')
 
   var resultCard = document.createElement('div')
-  resultCard.classList.add('card', 'column')
+  resultCard.classList.add('card', 'column', 'is-multiline')
   cardParent.appendChild(resultCard)
 
   var resultImgHold = document.createElement('div')
@@ -51,19 +61,42 @@ function printResults (dataResults) {
   cardDisc.textContent = dataResults.snippet.description
   resultCard.appendChild(cardDisc)
 
+  var cardLink = document.createElement('a')
+  cardLink.setAttribute('href', `https://www.youtube.com/watch?v=${dataResults.id.videoId}`)
+  cardLink.setAttribute('target', '_blank')
+  cardLink.classList.add('button', 'is-primary')
+  cardLink.textContent = 'Watch now!'
+  resultCard.appendChild(cardLink)
+  
+
 
 }
 
-function searchApi(value) {
-  var locQueryUrl =
-    "https://www.googleapis.com/youtube/v3/search?key=AIzaSyBHegcloyyeTcXZ7yRN4vubnnbqYIIJ8vE&part=snippet&q=" +
-    value +
-    "&type-video&VideoCategoryId=15";
+function printResultsGif (dataResults) {
+  console.log(dataResults)
+  gifParent.classList.add('columns')
 
-  fetch(locQueryUrl)
+  // var resultCard = document.createElement('div')
+  // resultCard.classList.add('card', 'column')
+  // gifParent.appendChild(resultCard)
+
+  var gifResult = document.createElement('img')
+  gifResult.classList.add('column', 'is-one-fifth', 'is-centered')
+  gifResult.setAttribute('src', dataResults.images.original.url)
+  gifResult.setAttribute('alt', dataResults.title)  
+  gifParent.appendChild(gifResult)
+
+}
+
+function searchYtApi (value) {
+  const apiKey = 'AIzaSyDcDNFqw79rNBAcjg0nY-N21UfKqVW4U3s'
+  var youtubeUrl =
+    `https://www.googleapis.com/youtube/v3/search?key=${apiKey}&part=snippet&q=${value}&type-video&VideoCategoryId=15`;
+
+  fetch(youtubeUrl)
     .then((response) => response.json())
     .then((data) => {
-      // console.log(data);
+      console.log(data);
       
       for (let i = 0; i < data.items.length; i++) {
         printResults(data.items[i])
@@ -74,20 +107,41 @@ function searchApi(value) {
     .catch((error) => {
       console.error(error);
     });
-
     cardParent.innerHTML = null;
-  }
-
-var lastSearch = localStorage.getItem('animal');
-if (lastSearch) {
-animalNamesInput.value = lastSearch;
-  searchApi(lastSearch);
 }
 
-//var searchInput =
-// var animals = ["animal 1", "animal 2", "animal 3", "animal 4", "animal 5", "animal 6"];
-// var animalSelection = document.querySelector("[]");
-// var apiURL = urlStart + animals[selectedoption] + urlEnd;
+function searchGifApi(value) {
+    const apiKey = 'EtWqh5cPx4L3jZayXSHTyH4VxTpK4Hsk'
+  fetch(`https://api.giphy.com/v1/gifs/search?api_key=${apiKey}&q=${value}&limit=5`)
+    .then((response) => response.json())
+    .then((data) => {
+      // console.log(data);
+      
+      for (let i = 0; i < data.data.length; i++) {
+        printResultsGif(data.data[i])
+        
+      }
+      
+    })
+    .catch((error) => {
+      console.error(error);
+    });
+
+    gifParent.innerHTML = null
+  }
+
+var lastYtSearch = localStorage.getItem('animal');
+if (lastYtSearch) {
+animalNamesInput.value = lastYtSearch;
+  searchYtApi(lastYtSearch);
+}
+
+var lastGifSearch = localStorage.getItem('gif');
+if (lastGifSearch) {
+gifNamesInput.value = lastGifSearch
+  searchGifApi(lastGifSearch);
+}
 
 
 animalNamesInput.addEventListener('change', getAnimalOption);
+gifNamesInput.addEventListener('change', getGifOption)

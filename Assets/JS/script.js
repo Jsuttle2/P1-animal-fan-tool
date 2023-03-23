@@ -76,10 +76,6 @@ function printResultsGif (dataResults) {
   console.log(dataResults)
   gifParent.classList.add('columns')
 
-  // var resultCard = document.createElement('div')
-  // resultCard.classList.add('card', 'column')
-  // gifParent.appendChild(resultCard)
-
   var gifResult = document.createElement('img')
   gifResult.classList.add('column', 'is-one-fifth', 'is-centered')
   gifResult.setAttribute('src', dataResults.images.original.url)

@@ -48,10 +48,6 @@ function printResults (dataResults) {
   cardDisc.classList.add('content')
   cardDisc.textContent = dataResults.snippet.description
   resultCard.appendChild(cardDisc)
-
-
-
-
 }
 
 function searchApi(value) {

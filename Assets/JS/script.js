@@ -1,22 +1,14 @@
+//App's HTML variables 
+
 var animalNamesInput = document.querySelector('#animal-names');
 var cardParent = document.querySelector('#card-parent')
 var gifParent = document.querySelector('#gif-parent')
 var gifNamesInput = document.querySelector('#gif-names')
 var wikiNamesInput = document.querySelector('#wiki-names')
-// function getParams() {
-//   // Get the search params out of the URL (i.e. `?q=london&format=photo`) and convert it to an array (i.e. ['?q=london', 'format=photo'])
-//   var searchParamsArr = document.location.search.split("&");
-//   console.log(searchParamsArr);
-//   // Get the query and format values
-//   var query = searchParamsArr[0].split("=").pop();
-//   var format = searchParamsArr[1].split("=").pop();
-
-//   searchApi(query, format);
-// }
 
 function getAnimalOption(event) {
   console.log(event.target.value);
-  // START
+
   searchYtApi(event.target.value);
 
   localStorage.setItem('animal', JSON.stringify(event.target.value));
@@ -24,7 +16,7 @@ function getAnimalOption(event) {
 
 function getGifOption(event) {
   console.log(event.target.value);
-  // START
+
   searchGifApi(event.target.value);
 
   localStorage.setItem('gif', JSON.stringify(event.target.value));
@@ -67,9 +59,6 @@ function printResults (dataResults) {
   cardLink.classList.add('button', 'is-primary')
   cardLink.textContent = 'Watch now!'
   resultCard.appendChild(cardLink)
-  
-
-
 }
 
 function printResultsGif (dataResults) {
@@ -81,7 +70,6 @@ function printResultsGif (dataResults) {
   gifResult.setAttribute('src', dataResults.images.original.url)
   gifResult.setAttribute('alt', dataResults.title)  
   gifParent.appendChild(gifResult)
-
 }
 
 function searchYtApi (value) {
@@ -95,8 +83,7 @@ function searchYtApi (value) {
       console.log(data);
       
       for (let i = 0; i < data.items.length; i++) {
-        printResults(data.items[i])
-        
+        printResults(data.items[i]) 
       }
       
     })
@@ -111,11 +98,9 @@ function searchGifApi(value) {
   fetch(`https://api.giphy.com/v1/gifs/search?api_key=${apiKey}&q=${value}&limit=5`)
     .then((response) => response.json())
     .then((data) => {
-      // console.log(data);
-      
+            
       for (let i = 0; i < data.data.length; i++) {
         printResultsGif(data.data[i])
-        
       }
       
     })

@@ -1,11 +1,11 @@
 //App's HTML variables 
-
 var animalNamesInput = document.querySelector('#animal-names');
 var cardParent = document.querySelector('#card-parent')
 var gifParent = document.querySelector('#gif-parent')
 var gifNamesInput = document.querySelector('#gif-names')
 var wikiNamesInput = document.querySelector('#wiki-names')
 
+// Logging selected Youtube animal, and activating Youtube fetch
 function getAnimalOption(event) {
   console.log(event.target.value);
 
@@ -14,6 +14,7 @@ function getAnimalOption(event) {
   localStorage.setItem('animal', JSON.stringify(event.target.value));
 }
 
+// Logging selected Giphy animal, and activating Giphy fetch
 function getGifOption(event) {
   console.log(event.target.value);
 
@@ -22,6 +23,7 @@ function getGifOption(event) {
   localStorage.setItem('gif', JSON.stringify(event.target.value));
 }
 
+// Prints HTML elements to display Youtube cards
 function printResults (dataResults) {
   console.log(dataResults)
   cardParent.classList.add('columns')
@@ -45,12 +47,12 @@ function printResults (dataResults) {
 
   var titleEl = document.createElement('p')
   titleEl.classList.add('title', 'is-4')
-  titleEl.textContent = dataResults.snippet.title
+  titleEl.innerHTML = dataResults.snippet.title
   resultCardCon.appendChild(titleEl)
 
   var cardDisc = document.createElement('div')
   cardDisc.classList.add('content')
-  cardDisc.textContent = dataResults.snippet.description
+  cardDisc.innerHTML = dataResults.snippet.description
   resultCard.appendChild(cardDisc)
 
   var cardLink = document.createElement('a')
@@ -61,6 +63,7 @@ function printResults (dataResults) {
   resultCard.appendChild(cardLink)
 }
 
+// Prints HTML elements for Giphy cards
 function printResultsGif (dataResults) {
   console.log(dataResults)
   gifParent.classList.add('columns')
@@ -72,6 +75,7 @@ function printResultsGif (dataResults) {
   gifParent.appendChild(gifResult)
 }
 
+// Fetch request for Youtube, and clears out previous cards
 function searchYtApi (value) {
   const apiKey = 'AIzaSyDcDNFqw79rNBAcjg0nY-N21UfKqVW4U3s'
   var youtubeUrl =
@@ -93,6 +97,7 @@ function searchYtApi (value) {
     cardParent.innerHTML = null;
 }
 
+// Fetch request for Giphy, and clears out previous cards
 function searchGifApi(value) {
     const apiKey = 'EtWqh5cPx4L3jZayXSHTyH4VxTpK4Hsk'
   fetch(`https://api.giphy.com/v1/gifs/search?api_key=${apiKey}&q=${value}&limit=5`)
@@ -111,12 +116,14 @@ function searchGifApi(value) {
     gifParent.innerHTML = null
   }
 
+  // Obtains last Youtube search
 var lastYtSearch = localStorage.getItem('animal');
 if (lastYtSearch) {
 animalNamesInput.value = lastYtSearch;
   searchYtApi(lastYtSearch);
 }
 
+ // Obtains last Giphy search
 var lastGifSearch = localStorage.getItem('gif');
 if (lastGifSearch) {
 gifNamesInput.value = lastGifSearch
@@ -124,5 +131,6 @@ gifNamesInput.value = lastGifSearch
 }
 
 
+// Event listeners, for changing animal selection
 animalNamesInput.addEventListener('change', getAnimalOption);
 gifNamesInput.addEventListener('change', getGifOption)

@@ -14,7 +14,7 @@ The tool relies on third-party APIs for its functionality. In the current implem
 
 To use the tool, simply open this link in your browser of choice!
 
-![Animal Fan Tool Website](https://jsuttle2.github.io/P1-animal-fan-tool/)
+[Animal Fan Tool Website](https://jsuttle2.github.io/P1-animal-fan-tool/)
 
 You will be presented with three dropdown menus - one for videos, one for gifs, and one for wikipedia articles (coming soon!). Select an animal name from the dropdown, and the tool will use the relevant API to populate a video or gif for that animal.
 
